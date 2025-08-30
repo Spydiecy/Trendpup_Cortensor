@@ -1,6 +1,20 @@
 # TrendPup 🐕 - AI Memecoin Investment Assistant
 
-**Advanced AI-powered memecoin intelligence system for Ethereum blockchain with real-time trading capabilities, wallet integration, and comprehensive investment analysis. Powered by Cortensor AI technologies.**
+**Advanced AI-powered memecoin intelligence system for Ethereum blockchain with real-time trading capabilities, wallet integration, and comprehensive investment analysis. Powered by Cortensor decentralized AI network.**
+
+## Technology Architecture
+
+### **Cortensor AI Integration**
+- **Local Router Node** - Self-hosted Cortensor router for decentralized AI inference
+- **LLaMA 3.1 8B Q4 Model** - Advanced language model running on Cortensor network
+- **Dynamic Session Management** - UUID-based session IDs for each AI request
+- **SSE Streaming Support** - Real-time AI responses via Server-Sent Events
+- **Health Monitoring** - Automated health checks for Cortensor API endpoints
+
+### **Hybrid AI Framework**
+- **Primary Engine**: Cortensor decentralized AI network for advanced analysis
+- **Fallback System**: Google ADK agents for reliability and redundancy
+- **Model Flexibility**: Seamless switching between Cortensor and traditional models
 
 ## Supported Chains & Networks
 
@@ -10,19 +24,18 @@
 
 ## Key Features
 
-- 🤖 **AI-Powered Investment Advice** - Provides specific memecoin recommendations and trading strategies using Cortensor AI
-- 💰 **Financial Advisory Services** - Authorized to give investment advice and portfolio recommendations
-- 🔗 **Ethereum-Native Support** - Native Ethereum Sepolia testnet integration with comprehensive ERC-20 support
-- 💳 **Wallet Balance Checking** - Real-time balance queries for any Ethereum wallet address
-- 🔄 **Live Trading Execution** - Execute swaps and trades directly through the platform
-- 📊 **Real-Time Market Data** - Live token prices, liquidity, and trading pairs on Ethereum
-- 🔍 **Advanced Token Search** - Find tokens by name, symbol, or contract address
-- 🛡️ **Security Analysis** - Comprehensive risk assessment and scam detection powered by Cortensor AI
-- 💬 **Conversational AI** - Natural language interaction with dog-themed personality using Cortensor technologies
+- 🤖 **Cortensor AI-Powered Analysis** - Decentralized AI inference via local Cortensor router node
+- 💰 **Intelligent Investment Advice** - Advanced memecoin recommendations using Cortensor AI models
+- 🔗 **Ethereum-Native Support** - Native Ethereum integration with comprehensive ERC-20 support
+- 💳 **Real-time Wallet Operations** - Live balance checking and transaction execution
+- 🔄 **Automated Trading System** - Direct swap execution through integrated DEX protocols
+- 📊 **Live Market Intelligence** - Real-time token analysis and risk assessment
+- 🔍 **Advanced Token Discovery** - AI-powered token search and evaluation
+- 🛡️ **Security Analysis** - Comprehensive smart contract and liquidity analysis
+- 💬 **Conversational AI** - Natural language interaction with dog-themed personality
 - 🎤 **Voice Interface** - Speech-to-text input and text-to-speech responses
-- 🔊 **Audio Feedback** - Voice mode for hands-free interaction
-- 🌐 **Google Search Integration** - Enhanced market intelligence and news analysis
-- ⚡ **Cortensor AI Engine** - Professional-grade AI analysis and decision-making capabilities
+- 🌐 **Multi-Source Intelligence** - Combined blockchain data with web search integration
+- ⚡ **Hybrid AI Engine** - Cortensor primary with Google ADK fallback system
 
 ## Current Capabilities & Functions
 
@@ -55,17 +68,23 @@
 - `get_token_quote(fromToken, toToken, amount)` - Token swap quotes on Ethereum
 - `build_ethereum_swap(fromToken, toToken, amount)` - Execute swaps on Ethereum
 
-### 🤖 **Cortensor AI Agent Architecture**
+### 🤖 **Multi-Agent System Architecture**
 
-**Multi-Agent System Powered by Cortensor AI:**
-1. **Context Analysis Agent** - Provides project context and detects crypto queries using Cortensor NLP
-2. **Blockchain Agent** - Handles live Ethereum blockchain data and trading operations  
-3. **Market Intelligence Agent** - Provides market intelligence and news analysis using Cortensor data processing
-4. **Root Agent (TrendPup)** - Coordinates all agents and provides final recommendations using Cortensor decision engine
+**Cortensor-Powered Agent Network:**
+1. **Context Analysis Agent** - Provides project context and detects crypto queries using hybrid AI
+2. **Ethereum MCP Agent** - Handles live Ethereum blockchain data and trading operations  
+3. **Search Agent** - Provides market intelligence and news analysis via web search
+4. **Root Agent (TrendPup)** - Coordinates all agents and provides final recommendations
 
-**Cortensor AI Agent Flow:**
+**Agent Configuration:**
+- **Primary Models**: `cortensor://cortensor-flash` and `cortensor://cortensor-pro`
+- **Session Management**: Dynamic UUID-based session IDs for each request
+- **Health Monitoring**: Automatic fallback to Google ADK if Cortensor unavailable
+- **Tool Integration**: Ethereum MCP tools, search capabilities, and document analysis
+
+**Agent Flow:**
 ```
-User Query → Context Analysis → [Blockchain + Market Intelligence in parallel] → Combined Analysis & Recommendations
+User Query → Context Analysis → [Ethereum MCP + Search Intelligence] → Combined Analysis & Recommendations
 ```
 
 ### 💡 **Investment Advisory Features (Cortensor AI Powered)**
@@ -335,7 +354,37 @@ graph TD
     style J fill:#ff6b35
 ```
 
-## TrendPup + Cortensor AI System Architecture
+## Cortensor Implementation Details
+
+### **Local Router Node Setup**
+```bash
+# Environment Configuration
+CORTENSOR_BASE_URL=http://127.0.0.1:5010
+CORTENSOR_API_KEY=default-dev-token
+
+# Dynamic session management - no hardcoded session IDs
+# Each request generates a unique 8-character UUID session ID
+```
+
+### **Backend Architecture (TypeScript)**
+- **AI Analyzer**: Token analysis with Cortensor integration
+- **Session Management**: Dynamic UUID generation for each request
+- **SSE Support**: Real-time streaming responses from Cortensor
+- **Health Monitoring**: Automatic fallback if Cortensor unavailable
+- **Ethereum Focus**: Specialized scrapers for Ethereum tokens and social data
+
+### **Agent System (Python)**
+- **Hybrid Framework**: Cortensor primary with Google ADK fallback
+- **Model Detection**: Automatic routing based on `cortensor://` model prefix
+- **Multi-Agent Architecture**: Context, Ethereum MCP, Search, and Root agents
+- **Tool Integration**: Comprehensive Ethereum blockchain operations
+
+### **Current Implementation Status**
+- ✅ **Cortensor Router Node**: Registered on Arbitrum Sepolia testnet
+- ✅ **TypeScript Backend**: Full Cortensor API integration with SSE
+- ✅ **Python Agents**: Hybrid system with Cortensor primary routing
+- ✅ **Dynamic Sessions**: UUID-based session management
+- ✅ **Health Monitoring**: Automatic status checks and fallbacks
 
 ```mermaid
 flowchart TD
@@ -401,37 +450,31 @@ flowchart TD
 ```mermaid
 graph TB
     subgraph "Cortensor AI Framework"
-        A[Cortensor AI Agents]
-        B[Multi-Agent System]
-        C[Cortensor NLP Engine]
-        D[Natural Language Processing]
+        A[Local Router Node]
+        B[Decentralized AI Network]
+        C[Dynamic Session Management]
+        D[SSE Streaming Support]
     end
     
-    subgraph "Cortensor Integration"
-        E[Cortensor API Protocol]
-        F[Cortensor AI Engine]
-        G[TypeScript Implementation]
-        H[Real-time Processing]
+    subgraph "Backend Implementation"
+        E[TypeScript AI Analyzer]
+        F[Python Agent System]
+        G[Hybrid Model Support]
+        H[Health Monitoring]
     end
     
     subgraph "Blockchain Layer"
         I[Ethereum Mainnet/Sepolia]
-        J[Multi-Chain RPC]
+        J[ERC-20 Token Support]
         K[Wallet Integration]
+        L[MCP Protocol]
     end
     
-    subgraph "Data & Search"
-        L[Google Search API]
-        M[Real-time Market Data]
-        N[README Documentation]
-        O[Live Blockchain Data]
-    end
-    
-    subgraph "Trading Infrastructure"
-        P[DEX Aggregation]
-        Q[Ethereum DEX Integration]
-        R[Wallet Balance APIs]
-        S[Trade Execution Engine]
+    subgraph "Data Sources"
+        M[Web Search Integration]
+        N[Real-time Market Data]
+        O[Documentation Context]
+        P[Live Blockchain Data]
     end
     
     A --> E
@@ -442,70 +485,44 @@ graph TB
     E --> I
     F --> J
     G --> K
+    H --> L
     
-    L --> A
-    M --> B
-    N --> C
-    O --> D
-    
-    I --> P
-    J --> Q
-    K --> R
-    
-    L --> A
-    M --> B
-    N --> C
-    O --> D
+    M --> A
+    N --> B
+    O --> C
+    P --> D
     
     style A fill:#9333ea
     style E fill:#a855f7
     style I fill:#32cd32
-    style P fill:#ff6b35
+    style M fill:#ff6b35
 ```
 
 **Component Breakdown**
 
 - **Cortensor AI Framework:**  
-  Multi-agent system using Cortensor's advanced AI technologies.  
-  Cortensor NLP engine for advanced natural language processing.  
-  Coordinated agent workflow for comprehensive analysis powered by Cortensor.  
-  Retrieval-Augmented Generation with README context using Cortensor RAG.
+  Local router node for decentralized AI inference  
+  Dynamic session ID generation for each request  
+  SSE streaming for real-time AI responses  
+  Health monitoring with automatic fallback systems
 
-- **Cortensor Integration (AI Protocol):**  
-  Professional-grade protocol for AI-blockchain interaction powered by Cortensor.  
-  TypeScript-based Cortensor AI engine implementation.  
-  Real-time processing for instant AI-driven decision making.  
-  Standardized tool calling interface for blockchain operations via Cortensor.
+- **Backend Implementation (TypeScript):**  
+  AI analyzer with Cortensor integration for token analysis  
+  Dynamic session management and SSE support  
+  Ethereum-focused token and Twitter scrapers  
+  Health checks and error handling
 
-- **Ethereum Blockchain Support:**  
-  **Ethereum Integration** - Chain ID 11155111 (Sepolia), native ETH and ERC-20 tokens.  
-  **Mainnet Support** - Chain ID 1 for production environments.  
-  **Testnet Focus** - Sepolia testnet for testing and development.  
-  Auto-detection of Ethereum address format validation.
+- **Agent System (Python):**  
+  Multi-agent architecture with Google ADK integration  
+  Cortensor model detection and routing  
+  Ethereum MCP tools for blockchain operations  
+  Hybrid AI system with fallback capabilities
 
-- **Trading Infrastructure:**  
-  **Ethereum DEX Integration** - Professional-grade decentralized exchange operations.  
-  **ERC-20 Token Support** - Comprehensive token management and trading.  
-  **Wallet Management** - Secure credential storage and balance checking powered by Cortensor.  
-  **Trade Execution** - Direct swap transaction execution using Cortensor execution engine.
-
-- **Data Intelligence Layer:**  
-  **Google Search Integration** - Real-time market news and sentiment powered by Cortensor.  
-  **Live Blockchain Data** - Direct RPC connections to Ethereum using Cortensor data pipelines.  
-  **README Context** - Up-to-date project capabilities and documentation processed by Cortensor.  
-  **Market Intelligence** - Combined technical and fundamental analysis via Cortensor AI.
-
-- **Financial Advisory System:**  
-  **Investment Recommendations** - Specific token suggestions with reasoning powered by Cortensor AI.  
-  **Risk Assessment** - Comprehensive security and volatility analysis using Cortensor risk models.  
-  **Portfolio Guidance** - Position sizing and allocation recommendations via Cortensor algorithms.  
-  **Trading Strategies** - Entry points, exit strategies, and risk management powered by Cortensor.
-
-- **Security & Wallet Features:**  
-  **Ethereum Wallet Support** - Native Ethereum (0x format) address validation.  
-  **Secure Credential Management** - Temporary in-memory storage during sessions using Cortensor security.  
-  **Balance Verification** - Real-time wallet balance checking on Ethereum via Cortensor APIs.  
-  **Transaction Security** - Validated private key formats and secure execution powered by Cortensor.
+- **Ethereum Integration:**  
+  Native ETH and ERC-20 token support  
+  Wallet balance checking and transaction execution  
+  Smart contract interaction via MCP protocol  
+  Comprehensive Ethereum ecosystem coverage
 
 ## Feature Comparison Matrix
 
@@ -529,25 +546,35 @@ graph TB
     end
 ```
 
-### Architecture Overview
+## Architecture Overview
 
-**Backend Services (Node.js + Cortensor AI Stack):**
+**Backend Services (Node.js + Cortensor Integration):**
 
-- API server processes requests and coordinates data analysis using Cortensor
-- Cortensor AI agent provides intelligent token analysis and insights
-- Web scrapers collect real-time data from Ethereum DEXs and social media using Cortensor data collection
+- TypeScript AI analyzer with native Cortensor API integration
+- Dynamic session management with UUID-based session IDs  
+- SSE streaming support for real-time AI responses
+- Ethereum-focused token and Twitter scrapers with health monitoring
 
-**Cortensor AI Infrastructure:**
+**Python Agent System (Hybrid AI Framework):**
 
-- Modern Cortensor AI models for advanced analysis and pattern recognition
-- Speech recognition for voice input processing powered by Cortensor
-- Text-to-speech synthesis for voice responses using Cortensor voice technologies
+- Multi-agent system with Google ADK and Cortensor integration
+- Automatic model detection and routing based on model prefixes
+- Comprehensive Ethereum MCP tools for blockchain operations
+- Fallback mechanisms for reliability and uptime
+
+**Cortensor Infrastructure:**
+
+- Local router node deployment for decentralized AI inference
+- Health monitoring and automatic fallback systems
+- Dynamic session management without hardcoded IDs
+- Real-time streaming capabilities via Server-Sent Events
 
 **Data Integration:**
 
-- Real-time scraping of Ethereum DEX data and ERC-20 token metrics using Cortensor
-- Social sentiment analysis from Twitter, Telegram, and other platforms
-- On-chain analytics from Ethereum blockchain data using Cortensor analytics
+- Real-time scraping of Ethereum DEX data and ERC-20 token metrics
+- Social sentiment analysis from Twitter and other platforms  
+- On-chain analytics from Ethereum blockchain data
+- Web search integration for market intelligence
 
 ## Why TrendPup + Cortensor AI vs. Traditional Tools?
 
@@ -596,18 +623,18 @@ graph LR
 
 ## Summary
 
-**TrendPup 🐕** is an advanced AI-powered memecoin investment assistant that provides **direct financial advice** and **trading execution** on the **Ethereum** ecosystem, powered by **Cortensor AI technologies**. 
+**TrendPup 🐕** is an advanced AI-powered memecoin investment assistant that combines **decentralized Cortensor AI** with **traditional AI systems** for comprehensive Ethereum ecosystem analysis and trading.
 
-### **Key Differentiators:**
+### **Key Technical Achievements:**
 
-🤖 **Cortensor AI Investment Advisory** - Provides specific BUY/SELL/HOLD recommendations with detailed reasoning powered by Cortensor  
-🔗 **Ethereum-Native Excellence** - Comprehensive Ethereum (ETH) and ERC-20 integration with premium quality focus  
-💳 **Integrated Trading** - Execute swaps, check balances, and manage positions directly through the platform using Cortensor  
-🛠️ **Cortensor AI Protocol** - Professional-grade AI protocol for reliable blockchain interactions  
-🌐 **Comprehensive Intelligence** - Combines live blockchain data with Google Search market analysis powered by Cortensor  
-🐕 **Conversational Interface** - Natural language interaction with dog-themed personality and financial expertise using Cortensor NLP  
+🤖 **Hybrid AI Architecture** - Cortensor decentralized AI with Google ADK fallback for maximum reliability  
+🔗 **Ethereum Excellence** - Native Ethereum integration with comprehensive ERC-20 and smart contract support  
+� **Production-Ready Implementation** - TypeScript backend with Python agent system, both Cortensor-integrated  
+🌐 **Dynamic Session Management** - UUID-based sessions with real-time SSE streaming capabilities  
+🛠️ **Comprehensive Tooling** - Ethereum MCP protocol integration with wallet and trading operations  
+� **Self-Healing System** - Health monitoring with automatic fallback mechanisms  
 
-The platform leverages Cortensor's advanced AI framework, professional trading infrastructure, and real-time market intelligence to provide institutional-level memecoin analysis and trading capabilities to users.
+The platform leverages both cutting-edge decentralized AI (Cortensor) and proven enterprise AI (Google ADK) to provide institutional-level memecoin analysis while maintaining the reliability and uptime required for financial applications.
 
 ---
 
