@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es2020",
+    "esModuleInterop": true,
+    "strict": true,
+    "types": ["node"],
+    "moduleResolution": "node"
+  },
+  "include": ["*.ts"],
+  "exclude": ["solana_tokens.json", "ethereum_tokens.json"]
+}

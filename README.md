@@ -77,7 +77,7 @@
 4. **Root Agent (TrendPup)** - Coordinates all agents and provides final recommendations
 
 **Agent Configuration:**
-- **Primary Models**: `cortensor://cortensor-flash` and `cortensor://cortensor-pro`
+- **Primary Models**: `cortensor://llama-3.1-8b-q4` (LLaMA 3.1 8B Q4 on Cortensor network)
 - **Session Management**: Dynamic UUID-based session IDs for each request
 - **Health Monitoring**: Automatic fallback to Google ADK if Cortensor unavailable
 - **Tool Integration**: Ethereum MCP tools, search capabilities, and document analysis
