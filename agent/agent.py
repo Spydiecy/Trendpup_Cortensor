@@ -201,31 +201,6 @@ def ethereum_mcp_call(method: str, params: dict = None) -> dict:
 
 
 
-def get_private_key_if_enabled() -> str:
-    try:
-        private_key = os.getenv("WALLET_PRIVATE_KEY", "")
-        if private_key:
-            return private_key
-        else:
-            logger.warning("No private key found in WALLET_PRIVATE_KEY environment variable")
-            return ""
-    except Exception as e:
-        logger.error(f"Error retrieving private key: {e}")
-        return ""
-
-def check_extended_functions_enabled() -> bool:
-    try:
-        private_key = os.getenv("WALLET_PRIVATE_KEY", "")
-        if private_key and len(private_key) > 0:
-            return True
-        else:
-            return False
-    except Exception as e:
-        logger.error(f"Error checking extended functions: {e}")
-        return False
-
-
-
 def get_eth_balance(address: str, network: str = "ethereum") -> dict:
     return ethereum_mcp_call("tools/call", {
         "name": "get_balance",
