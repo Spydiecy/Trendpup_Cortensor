@@ -263,7 +263,7 @@ export default function TrendPupChat() {
                 return "Loading Context";
             case "Google_Search":
                 return "Searching Market Data";
-            case "OKX_MCP":
+            case "Cortensor_AI":
                 return "Analyzing Blockchain Data";
             case "TrendPup":
                 return "Generating Recommendations";
@@ -657,7 +657,7 @@ export default function TrendPupChat() {
                         </div>
                         <div>
                             <h2 className="text-xl font-bold">TrendPup AI Assistant</h2>
-                            <p className="text-sm opacity-90">Multi-chain memecoin intelligence with live trading</p>
+                            <p className="text-sm opacity-90">Ethereum memecoin intelligence powered by Cortensor AI</p>
                         </div>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -699,13 +699,13 @@ export default function TrendPupChat() {
                         </div>
                         <h3 className="text-xl font-bold text-trendpup-dark mb-2">Welcome to TrendPup!</h3>
                         <p className="text-gray-600 mb-4">
-                            Your AI-powered memecoin investment assistant for Solana and Ethereum
+                            Your AI-powered memecoin investment assistant for Ethereum, powered by Cortensor AI technologies
                         </p>
                         <div className="text-sm text-gray-500 space-y-1">
-                            <p>• Get specific investment recommendations</p>
-                            <p>• Check wallet balances across chains</p>
-                            <p>• Execute trades and bridge tokens</p>
-                            <p>• Real-time market analysis</p>
+                            <p>• Get specific investment recommendations on Ethereum</p>
+                            <p>• Check wallet balances and token holdings</p>
+                            <p>• Execute trades and analyze market trends</p>
+                            <p>• Real-time Ethereum memecoin analysis</p>
                         </div>
                     </div>
                 ) : (

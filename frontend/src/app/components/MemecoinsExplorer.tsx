@@ -7,7 +7,6 @@ import { fetchTokenData, FormattedMemecoin } from '../services/TokenData';
 const CHAIN_OPTIONS = [
   { label: 'All Chains', value: 'all' },
   { label: 'Ethereum', value: 'ethereum' },
-  { label: 'Solana', value: 'solana' },
   { label: 'Base', value: 'base' },
   { label: 'BSC', value: 'bsc' },
 ];

@@ -5,13 +5,12 @@ import Image from 'next/image';
 import { FaTimes, FaDog, FaChartLine, FaWallet, FaFileAlt, FaComments, FaChartBar, FaPlug, FaExpand, FaExchangeAlt, FaHome } from 'react-icons/fa';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useChainId, useSwitchChain, useDisconnect } from 'wagmi';
-import { useWallet } from '@solana/wallet-adapter-react';
 import { sepolia } from '../wagmi';
 import TrendPupChat from './components/TrendPupChat';
 import MemecoinsExplorer from './components/MemecoinsExplorer';
 import AccessControl from './components/AccessControl';
 import AccessStatus from './components/AccessStatus';
-import DualWalletButton from './components/DualWalletButton';
+import EthereumWalletButton from './components/DualWalletButton';
 import AccessControlModal from './components/AccessControlModal';
 import { useSubscriptionStatus } from './hooks/useSubscriptionStatus';
 import { useChain } from './contexts/ChainContext';
@@ -37,18 +36,13 @@ interface OpenWindow {
 }
 
 interface HomeProps {
-  selectedChain: 'solana' | 'ethereum';
+  selectedChain: 'ethereum';
 }
 
 // Create the main component that gets selectedChain from context
 function HomeComponent() {
   const { selectedChain } = useChain();
   const [appStarted, setAppStarted] = useState(false);
-  
-  // Don't render anything if chain is not selected yet
-  if (!selectedChain) {
-    return null;
-  }
   const [chatMode, setChatMode] = useState(false);
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const [activeWindowId, setActiveWindowId] = useState<string | null>(null);
@@ -383,7 +377,7 @@ function HomeComponent() {
               </button>
             </div>
             <div className="p-4 max-h-[500px] overflow-auto">
-              <MemecoinsExplorer selectedChain={selectedChain} />
+              <MemecoinsExplorer selectedChain={selectedChain || 'ethereum'} />
             </div>
             {/* Resize handle */}
             <div 
@@ -472,12 +466,12 @@ function HomeComponent() {
               </button>
             </div>
             <div className="p-6 overflow-auto max-h-[500px]">
-              <h1 className="text-2xl font-bold text-trendpup-dark mb-3">TrendPup: Advanced Memecoin Intelligence System for Solana & Ethereum Networks</h1>
+              <h1 className="text-2xl font-bold text-trendpup-dark mb-3">TrendPup: Advanced Memecoin Intelligence System for Ethereum Network</h1>
               
               <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Executive Summary</h2>
               <div className="prose prose-sm">
-                <p className="mb-3">TrendPup is a revolutionary AI-powered platform engineered specifically for the Solana and Ethereum ecosystems, providing traders with unprecedented early access to emerging meme tokens before significant price movements occur. By leveraging Google Vertex AI for advanced AI analysis and our agents for conversational intelligence, TrendPup synthesizes sophisticated social media analytics with on-chain Solana and Ethereum data to identify high-potential opportunities during their inception phase, allowing users to position themselves advantageously in the market.</p>
-                <p className="mb-3">Our platform democratizes access to valuable pre-pump intelligence previously available only to well-connected insiders and sophisticated traders within the Solana and Ethereum ecosystems. Powered by our multi agent system, TrendPup's unique dual-access model provides free access on Solana and premium subscription-based access on Ethereum, ensuring accessibility while maintaining quality through economic incentives.</p>
+                <p className="mb-3">TrendPup is a revolutionary AI-powered platform engineered specifically for the Ethereum ecosystem, providing traders with unprecedented early access to emerging meme tokens before significant price movements occur. By leveraging Google Vertex AI for advanced AI analysis and our agents for conversational intelligence, TrendPup synthesizes sophisticated social media analytics with on-chain Ethereum data to identify high-potential opportunities during their inception phase, allowing users to position themselves advantageously in the market.</p>
+                <p className="mb-3">Our platform democratizes access to valuable pre-pump intelligence previously available only to well-connected insiders and sophisticated traders within the Ethereum ecosystem. Powered by our multi agent system, TrendPup provides premium subscription-based access on Ethereum, ensuring quality through economic incentives.</p>
               </div>
 
               <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Technology Infrastructure</h2>
@@ -485,12 +479,12 @@ function HomeComponent() {
               <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Real-Time Data Acquisition Network</h3>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Multi-Chain Social Listening:</strong> Proprietary system continuously monitors Twitter/X for early mentions of emerging Solana and Ethereum meme tokens</li>
+                  <li><strong>Multi-Chain Social Listening:</strong> Proprietary system continuously monitors Twitter/X for early mentions of emerging Ethereum meme tokens</li>
                   <li><strong>Advanced Filtering Matrix:</strong>
                     <ul className="list-disc pl-5 mt-1">
                       <li>Engagement threshold verification (filtering for authentic interaction patterns)</li>
                       <li>Account credibility scoring (bot detection and influence assessment)</li>
-                      <li>Solana and Ethereum-specific semantic analysis (context-aware keyword processing)</li>
+                      <li>Ethereum-specific semantic analysis (context-aware keyword processing)</li>
                       <li>Temporal signal amplification detection (identifying organic growth patterns)</li>
                     </ul>
                   </li>
@@ -501,9 +495,9 @@ function HomeComponent() {
               <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Cognitive Analysis Engine</h3>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Data Aggregation:</strong> Scraper collects Solana and Ethereum token data from various DEXs and scrapes Twitter for token-related tweets and sentiment.</li>
+                  <li><strong>Data Aggregation:</strong> Scraper collects Ethereum token data from various DEXs and scrapes Twitter for token-related tweets and sentiment.</li>
                   <li><strong>AI Analysis:</strong> Reads tweets and token data, determines risk score, investment potential, etc for each token.</li>
-                  <li><strong>Multi-Agent System (Google ADK):</strong> Answers user queries with the latest token data and in-depth analysis using Retrieval-Augmented Generation, search tools and OKX DEX API MCP Server.</li>
+                  <li><strong>Multi-Agent System (Cortensor AI):</strong> Answers user queries with the latest token data and in-depth analysis using Retrieval-Augmented Generation, search tools and Cortensor AI Engine.</li>
                   <li><strong>Voice Interface:</strong> Natural speech input and output capabilities enabling hands-free interaction with AI analysis and trading insights.</li>
                 </ul>
               </div>
@@ -518,18 +512,9 @@ function HomeComponent() {
                 </ul>
               </div>
 
-              <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Multi-Chain Integration</h2>
+              <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Network Integration</h2>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Solana Network:</strong>
-                    <ul className="list-disc pl-5 mt-1">
-                      <li>Network: Devnet (for testing)</li>
-                      <li>Native Currency: SOL</li>
-                      <li>Access Level: Free</li>
-                      <li>Wallet Support: Phantom, Solflare, and other Solana wallets</li>
-                      <li>Features: Full memecoin tracking and analysis</li>
-                    </ul>
-                  </li>
                   <li><strong>Ethereum Sepolia Testnet:</strong>
                     <ul className="list-disc pl-5 mt-1">
                       <li>Chain ID: 11155111</li>
@@ -540,11 +525,9 @@ function HomeComponent() {
                       <li>Access Level: Premium with enhanced features</li>
                     </ul>
                   </li>
-                  <li><strong>Dual Wallet Integration:</strong>
+                  <li><strong>Ethereum Wallet Integration:</strong>
                     <ul className="list-disc pl-5 mt-1">
                       <li>RainbowKit for Ethereum wallets (MetaMask, WalletConnect, etc.)</li>
-                      <li>Solana Wallet Adapter for Solana wallets</li>
-                      <li>Seamless switching between networks</li>
                       <li>Real-time balance and transaction monitoring</li>
                       <li>Access control based on wallet connection and subscription status</li>
                     </ul>
@@ -555,12 +538,11 @@ function HomeComponent() {
               <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Strategic Advantages</h2>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Dual-Network Strategy:</strong> Free access on Solana for broad adoption, premium access on Ethereum for quality assurance</li>
+                  <li><strong>Premium Ethereum Strategy:</strong> High-quality access through economic incentives ensures serious users</li>
                   <li><strong>Early Signal Detection:</strong> Proprietary algorithms capable of identifying promising tokens hours or days before mainstream awareness</li>
-                  <li><strong>Integrated Data Intelligence:</strong> Unified analysis combining social indicators with on-chain Solana and Ethereum metrics</li>
+                  <li><strong>Integrated Data Intelligence:</strong> Unified analysis combining social indicators with on-chain Ethereum metrics</li>
                   <li><strong>Voice-Enabled AI Chat:</strong> Natural voice interaction with AI agent for hands-free trading insights and analysis</li>
                   <li><strong>Scientific Methodology:</strong> Data-driven approach eliminating emotional decision-making</li>
-                  <li><strong>Flexible Access Model:</strong> Choose between free Solana access or premium Ethereum features based on your needs</li>
                 </ul>
               </div>
 
@@ -623,17 +605,17 @@ function HomeComponent() {
               <div className="mb-4 p-3 bg-gray-50 rounded-lg">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Image 
-                    src={selectedChain === 'solana' ? "/sol.svg" : "/eth.svg"} 
-                    alt={selectedChain} 
+                    src="/eth.svg" 
+                    alt="ethereum" 
                     width={20} 
                     height={20} 
                   />
                   <span className="font-medium">
-                    {selectedChain === 'solana' ? 'Solana Devnet' : 'Ethereum Sepolia'}
+                    Ethereum Sepolia
                   </span>
                 </div>
                 <p className="text-xs text-gray-500">
-                  {selectedChain === 'solana' ? 'Free Access' : 'Premium - 0.01 ETH'}
+                  Premium - 0.01 ETH
                 </p>
               </div>
 
@@ -642,22 +624,19 @@ function HomeComponent() {
                 <div className="text-left">
                   <p className="text-sm text-gray-600 mb-1">Selected Blockchain:</p>
                   <p className="font-mono text-xs bg-gray-100 p-2 rounded">
-                    {selectedChain === 'solana' ? 'Solana Network' : 'Ethereum Network'}
+                    Ethereum Network
                   </p>
                 </div>
                 
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-gray-600">Network:</span>
                   <span className="font-medium">
-                    {selectedChain === 'solana' ? 'Solana Devnet' : 'Ethereum Sepolia'}
+                    Ethereum Sepolia
                   </span>
                 </div>
 
                 <div className="p-2 border rounded text-xs bg-blue-50 border-blue-200 text-blue-700">
-                  {selectedChain === 'solana' 
-                    ? '✅ Free access on Solana network'
-                    : '🔒 Premium access on Ethereum network'
-                  }
+                  🔒 Premium access on Ethereum network
                 </div>
               </div>
             </div>
@@ -725,7 +704,7 @@ function HomeComponent() {
             
             <h1 className="text-3xl font-bold text-trendpup-dark mb-2">TrendPup AI</h1>
             <p className="text-gray-600 mb-8 md:mb-10 text-sm">
-              An autonomous AI agent that finds trending memecoins on Solana and Ethereum networks.
+              An autonomous AI agent that finds trending memecoins on the Ethereum network.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

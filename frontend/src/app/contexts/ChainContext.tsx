@@ -1,15 +1,15 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface ChainContextType {
-  selectedChain: 'solana' | 'ethereum' | null;
-  setSelectedChain: (chain: 'solana' | 'ethereum') => void;
+  selectedChain: 'ethereum' | null;
+  setSelectedChain: (chain: 'ethereum') => void;
   resetChain: () => void;
 }
 
 const ChainContext = createContext<ChainContextType | undefined>(undefined);
 
 export function ChainProvider({ children }: { children: ReactNode }) {
-  const [selectedChain, setSelectedChain] = useState<'solana' | 'ethereum' | null>(null);
+  const [selectedChain, setSelectedChain] = useState<'ethereum' | null>('ethereum');
 
   const resetChain = () => setSelectedChain(null);
 

@@ -1,4 +1,4 @@
-// Smart contract configuration for Ethereum and Solana chains
+// Smart contract configuration for Ethereum chain powered by Cortensor AI
 
 // Ethereum Sepolia contract configuration
 export const ETHEREUM_CONTRACT = {

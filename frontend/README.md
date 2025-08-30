@@ -1,55 +1,54 @@
 # TrendPup Frontend
 
-Advanced Memecoin Intelligence System for Flow and Near Protocols with multi-chain wallet support.
+Advanced Memecoin Intelligence System for Ethereum blockchain with Cortensor AI integration and comprehensive wallet support.
 
 ## Features
 
-- Real-time chat with AI assistant
-- Multi-chain memecoin tracking (Flow & Near)
-- Wallet connectivity for Flow and Near testnets
-- Chain switching functionality with automatic wallet network switching
-- Memecoin explorer and analytics
+- Real-time chat with Cortensor AI assistant
+- Ethereum memecoin tracking and analysis
+- Wallet connectivity for Ethereum Sepolia testnet
+- Premium access model with payment integration
+- Memecoin explorer and analytics powered by Cortensor AI
 - Responsive UI using Tailwind CSS
 - Dashboard with multiple windows interface
+- Voice interaction capabilities
 
 ## Supported Networks
 
-TrendPup supports multiple blockchain networks with wallet connectivity:
+TrendPup focuses on Ethereum blockchain with premium wallet connectivity:
 
-**Flow Protocol:**
-- Flow EVM Testnet (Chain ID: 545)
-- RPC: https://testnet.evm.nodes.onflow.org
-- Block Explorer: https://testnet.flowdiver.io/
-- Currency: FLOW
-
-**Near Protocol:**
-- Near Aurora Testnet (Chain ID: 1313161555)
-- RPC: https://testnet.aurora.dev
-- Block Explorer: https://explorer.testnet.aurora.dev/
+**Ethereum Sepolia Testnet:**
+- Chain ID: 11155111
+- RPC: Sepolia Testnet
+- Block Explorer: https://sepolia.etherscan.io/
 - Currency: ETH
+- Access: Premium (0.01 ETH one-time payment)
 
 ## Wallet Integration
 
 ### Supported Wallets
 - MetaMask
 - WalletConnect compatible wallets
-- Any EVM-compatible wallet
+- Any EVM-compatible wallet supporting Ethereum
 
-### Chain Switching
-Users can easily switch between supported chains using:
-1. **Main Chain Selector**: On the landing page for initial chain selection
-2. **Top Navigation Toggle**: Quick chain switching in the main interface  
-3. **Wallet Window**: Chain switching buttons within the wallet interface
+### Premium Access
+Users must:
+1. Connect their Ethereum wallet
+2. Switch to Sepolia testnet if needed
+3. Pay 0.01 ETH one-time fee for premium access
+4. Enjoy full access to Cortensor AI-powered memecoin analysis
 
-The application automatically prompts users to switch their wallet to the corresponding network when a different chain is selected.
+## Cortensor AI Integration
 
-## Chain Selection
-
-The memecoin data automatically updates based on the selected chain. Each chain fetches data from its respective API endpoint:
-- Flow: `/api/token-data?chain=flow`
-- Near: `/api/token-data?chain=near`
+The memecoin data and analysis is powered by Cortensor AI technologies:
+- Advanced AI analysis for token recommendations
+- Risk assessment using Cortensor algorithms
+- Natural language processing for chat interactions
+- Voice synthesis and recognition capabilities
 
 ## Getting Started
+
+## Installation & Development
 
 1. Install dependencies:
 
@@ -79,19 +78,23 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ## Wallet Integration
 
-The frontend uses wagmi for wallet connectivity, supporting:
+The frontend uses wagmi and RainbowKit for Ethereum wallet connectivity, supporting:
 - MetaMask
 - WalletConnect
+- Rainbow Wallet
+- Coinbase Wallet
+- Trust Wallet
 - And other popular Ethereum wallets
 
-Make sure your wallet is configured for Flow EVM testnet or Near Aurora testnet.
+Make sure your wallet is configured for Ethereum Sepolia testnet.
 
 ## Configuration
 
 - `next.config.cjs`: Next.js configuration
-- `tailwind.config.js`: Tailwind CSS configuration
+- `tailwind.config.js`: Tailwind CSS configuration with TrendPup theme
 - `postcss.config.js`: PostCSS configuration
-- `src/wagmi.ts`: Wagmi configuration for Flow EVM and Near Aurora testnets
+- `src/wagmi.ts`: Wagmi configuration for Ethereum Sepolia testnet
+- `src/config/contract.ts`: Smart contract configuration for premium access
 
 ## Running the Server
 
@@ -108,12 +111,20 @@ TrendPup uses Next.js with nginx for HTTPS and WebSocket proxying:
 2. **Access the app:**
    The application is available at https://trendpup.duckdns.org
 
+## Architecture
+
+The frontend architecture leverages Cortensor AI technologies:
+- **Cortensor AI Engine**: Powers the memecoin analysis and recommendations
+- **Smart Contract Integration**: Premium access payment system on Ethereum
+- **Real-time Data**: Live memecoin tracking with AI-powered insights
+- **Voice Interaction**: Natural language processing for voice commands
+
 ## Nginx Configuration
 
 The application runs behind nginx which:
 - Handles HTTPS/SSL encryption
 - Proxies HTTP requests to the Next.js server on port 3000
-- Proxies WebSocket connections at `/ws` to the backend WebSocket server on port 8080
+- Proxies WebSocket connections at `/ws` to the Cortensor AI backend server on port 8080
 
 ```nginx
 # Main configuration at /etc/nginx/sites-enabled/trendpup.conf
@@ -130,7 +141,7 @@ server {
         proxy_set_header Host $host;
     }
 
-    # WebSocket proxy
+    # Cortensor AI WebSocket proxy
     location /ws {
         proxy_pass http://localhost:8080;
         proxy_http_version 1.1;
