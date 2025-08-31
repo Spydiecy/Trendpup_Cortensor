@@ -3,16 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { FaTimes, FaDog, FaChartLine, FaWallet, FaFileAlt, FaComments, FaChartBar, FaPlug, FaExpand, FaExchangeAlt, FaHome } from 'react-icons/fa';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useAccount, useChainId, useSwitchChain, useDisconnect } from 'wagmi';
-import { sepolia } from '../wagmi';
 import TrendPupChat from './components/TrendPupChat';
 import MemecoinsExplorer from './components/MemecoinsExplorer';
 import AccessControl from './components/AccessControl';
 import AccessStatus from './components/AccessStatus';
-import EthereumWalletButton from './components/DualWalletButton';
 import AccessControlModal from './components/AccessControlModal';
-import { useSubscriptionStatus } from './hooks/useSubscriptionStatus';
 import { useChain } from './contexts/ChainContext';
 
 // Window position interface
@@ -466,89 +461,83 @@ function HomeComponent() {
               </button>
             </div>
             <div className="p-6 overflow-auto max-h-[500px]">
-              <h1 className="text-2xl font-bold text-trendpup-dark mb-3">TrendPup: Advanced Memecoin Intelligence System for Ethereum Network</h1>
+              <h1 className="text-2xl font-bold text-trendpup-dark mb-3">TrendPup 🐕 - AI Memecoin Investment Assistant</h1>
               
               <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Executive Summary</h2>
               <div className="prose prose-sm">
-                <p className="mb-3">TrendPup is a revolutionary AI-powered platform engineered specifically for the Ethereum ecosystem, providing traders with unprecedented early access to emerging meme tokens before significant price movements occur. By leveraging Google Vertex AI for advanced AI analysis and our agents for conversational intelligence, TrendPup synthesizes sophisticated social media analytics with on-chain Ethereum data to identify high-potential opportunities during their inception phase, allowing users to position themselves advantageously in the market.</p>
-                <p className="mb-3">Our platform democratizes access to valuable pre-pump intelligence previously available only to well-connected insiders and sophisticated traders within the Ethereum ecosystem. Powered by our multi agent system, TrendPup provides premium subscription-based access on Ethereum, ensuring quality through economic incentives.</p>
+                <p className="mb-3">TrendPup is an <strong>advanced AI-powered memecoin intelligence system for Ethereum blockchain with real-time trading capabilities, wallet integration, and comprehensive investment analysis</strong>. Powered by <strong>Cortensor decentralized AI network</strong>, our platform provides institutional-level analysis and trading capabilities through a professional-grade infrastructure.</p>
+                <p className="mb-3">Built on <strong>Google ADK agents modified to use Cortensor models exclusively</strong>, TrendPup offers native Ethereum integration with comprehensive ERC-20 and smart contract support. Our platform democratizes access to institutional-level memecoin analysis with <strong>premium access (0.01 ETH) on Ethereum Sepolia testnet</strong>.</p>
               </div>
 
-              <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Technology Infrastructure</h2>
+              <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Cortensor AI Architecture</h2>
               
-              <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Real-Time Data Acquisition Network</h3>
+              <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Core Technology Stack</h3>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Multi-Chain Social Listening:</strong> Proprietary system continuously monitors Twitter/X for early mentions of emerging Ethereum meme tokens</li>
-                  <li><strong>Advanced Filtering Matrix:</strong>
-                    <ul className="list-disc pl-5 mt-1">
-                      <li>Engagement threshold verification (filtering for authentic interaction patterns)</li>
-                      <li>Account credibility scoring (bot detection and influence assessment)</li>
-                      <li>Ethereum-specific semantic analysis (context-aware keyword processing)</li>
-                      <li>Temporal signal amplification detection (identifying organic growth patterns)</li>
-                    </ul>
-                  </li>
-                  <li><strong>Operational Parameters:</strong> High-frequency scanning at 3-5 minute intervals with intelligent rate limiting to ensure comprehensive coverage</li>
+                  <li><strong>Local Router Node</strong> - Self-hosted Cortensor router for decentralized AI inference</li>
+                  <li><strong>LLaMA 3.1 8B Q4 Model</strong> - Advanced language model running on Cortensor network</li>
+                  <li><strong>Dynamic Session Management</strong> - UUID-based session IDs for each AI request</li>
+                  <li><strong>SSE Streaming Support</strong> - Real-time responses via Server-Sent Events</li>
                 </ul>
               </div>
 
-              <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Cognitive Analysis Engine</h3>
+              <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Multi-Agent System Architecture</h3>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Data Aggregation:</strong> Scraper collects Ethereum token data from various DEXs and scrapes Twitter for token-related tweets and sentiment.</li>
-                  <li><strong>AI Analysis:</strong> Reads tweets and token data, determines risk score, investment potential, etc for each token.</li>
-                  <li><strong>Multi-Agent System (Cortensor AI):</strong> Answers user queries with the latest token data and in-depth analysis using Retrieval-Augmented Generation, search tools and Cortensor AI Engine.</li>
-                  <li><strong>Voice Interface:</strong> Natural speech input and output capabilities enabling hands-free interaction with AI analysis and trading insights.</li>
+                  <li><strong>Context Analysis Agent</strong> - Provides project context using Cortensor AI</li>
+                  <li><strong>Ethereum MCP Agent</strong> - Handles live blockchain data and trading operations</li>
+                  <li><strong>Search Agent</strong> - Provides market intelligence via web search</li>
+                  <li><strong>Root Agent (TrendPup)</strong> - Coordinates all agents with final recommendations</li>
                 </ul>
               </div>
 
-              <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Voice-Enabled AI Experience</h3>
+              <h3 className="text-lg font-semibold text-trendpup-dark mt-4 mb-2">Key Features</h3>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Speech Recognition:</strong> Advanced voice input processing for natural conversations with the AI agent</li>
-                  <li><strong>Text-to-Speech:</strong> High-quality voice synthesis with customizable voice selection for natural-sounding responses</li>
-                  <li><strong>Hands-Free Trading:</strong> Query market data, get token analysis, and receive trading insights through voice commands</li>
-                  <li><strong>Multi-Modal Interaction:</strong> Seamless switching between text and voice interactions based on user preference</li>
+                  <li><strong>🤖 Cortensor AI-Powered Analysis</strong> - Decentralized AI inference via local router</li>
+                  <li><strong>💰 Intelligent Investment Advice</strong> - Advanced memecoin recommendations</li>
+                  <li><strong>🔗 Ethereum-Native Support</strong> - Comprehensive ERC-20 integration</li>
+                  <li><strong>💳 Real-time Wallet Operations</strong> - Live balance checking and transactions</li>
+                  <li><strong>🎤 Voice Interface</strong> - Speech-to-text input and text-to-speech responses</li>
                 </ul>
               </div>
 
-              <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Network Integration</h2>
+              <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Supported Networks</h2>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Ethereum Sepolia Testnet:</strong>
-                    <ul className="list-disc pl-5 mt-1">
-                      <li>Chain ID: 11155111</li>
-                      <li>Native Currency: ETH</li>
-                      <li>RPC URL: sepolia.infura.io</li>
-                      <li>Block Explorer: sepolia.etherscan.io</li>
-                      <li>Subscription Fee: 0.01 ETH</li>
-                      <li>Access Level: Premium with enhanced features</li>
-                    </ul>
-                  </li>
-                  <li><strong>Ethereum Wallet Integration:</strong>
-                    <ul className="list-disc pl-5 mt-1">
-                      <li>RainbowKit for Ethereum wallets (MetaMask, WalletConnect, etc.)</li>
-                      <li>Real-time balance and transaction monitoring</li>
-                      <li>Access control based on wallet connection and subscription status</li>
-                    </ul>
-                  </li>
+                  <li><strong>Ethereum Sepolia Testnet</strong> - Chain ID: 11155111 (DEFAULT)</li>
+                  <li><strong>Native ETH and ERC-20 Support</strong> - Comprehensive token operations</li>
+                  <li><strong>Premium Access</strong> - 0.01 ETH subscription model</li>
+                </ul>
+              </div>
+
+              <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Investment Analysis Framework</h2>
+              <div className="prose prose-sm">
+                <p className="mb-3">Our <strong>5-Factor Risk Assessment Model</strong> prioritizes capital preservation:</p>
+                <ul className="list-disc pl-5 mb-4">
+                  <li><strong>Liquidity Health</strong> - Pool size and slippage risk assessment</li>
+                  <li><strong>Age-Based Security</strong> - Token age and rug pull risk evaluation</li>
+                  <li><strong>Volatility Patterns</strong> - Manipulation detection and healthy ranges</li>
+                  <li><strong>Contract Security</strong> - Ownership status and audit verification</li>
+                  <li><strong>Community Authenticity</strong> - Organic growth vs bot activity</li>
                 </ul>
               </div>
 
               <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Strategic Advantages</h2>
               <div className="prose prose-sm">
                 <ul className="list-disc pl-5 mb-4">
-                  <li><strong>Premium Ethereum Strategy:</strong> High-quality access through economic incentives ensures serious users</li>
-                  <li><strong>Early Signal Detection:</strong> Proprietary algorithms capable of identifying promising tokens hours or days before mainstream awareness</li>
-                  <li><strong>Integrated Data Intelligence:</strong> Unified analysis combining social indicators with on-chain Ethereum metrics</li>
-                  <li><strong>Voice-Enabled AI Chat:</strong> Natural voice interaction with AI agent for hands-free trading insights and analysis</li>
-                  <li><strong>Scientific Methodology:</strong> Data-driven approach eliminating emotional decision-making</li>
+                  <li><strong>Direct Financial Advice</strong> - Specific BUY/SELL/HOLD recommendations</li>
+                  <li><strong>Automated Research</strong> - Multi-source data gathering and analysis</li>
+                  <li><strong>Integrated Trading</strong> - Execute swaps directly through platform</li>
+                  <li><strong>Early Detection</strong> - Identify opportunities before mainstream discovery</li>
+                  <li><strong>Professional Infrastructure</strong> - Cortensor-powered AI analysis</li>
                 </ul>
               </div>
 
               <h2 className="text-xl font-bold text-trendpup-dark mt-6 mb-3">Contact Information</h2>
               <div className="prose prose-sm">
-                <p className="italic mt-4">Email: tanishqgupta322@gmail.com | Twitter: @Trend_Pup | Discord: tbd</p>
+                <p className="italic mt-4">Email: tanishqgupta322@gmail.com | Twitter: @Trend_Pup</p>
+                <p className="text-xs mt-2 text-gray-600">TrendPup - AI-powered Ethereum memecoin intelligence with Cortensor AI technologies</p>
               </div>
             </div>
             {/* Resize handle */}

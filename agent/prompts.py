@@ -135,7 +135,7 @@ def return_instructions_root(agent_type: str = 'root') -> str:
         **Network Parameters:**
         - Use "ethereum" for mainnet operations
         - Use "sepolia" for testnet operations
-        - Default to "ethereum" if not specified
+        - Default to "sepolia" if not specified
         
         **Wallet Balance Tools:**
         - get_eth_balance: Check native ETH balances
@@ -189,8 +189,8 @@ def return_instructions_root(agent_type: str = 'root') -> str:
         - For transfer operations: Handle normally with credential prompts as needed
         
         **Wallet Balance Guidelines:**
-        - **Chain Detection**: Automatically detect chain from context or default to Ethereum mainnet
-          * Ethereum addresses: 0x format (42 characters) → network = "ethereum" or "sepolia"
+        - **Chain Detection**: Automatically detect chain from context or default to Sepolia testnet
+          * Ethereum addresses: 0x format (42 characters) → network = "sepolia" or "ethereum"
         - **Native vs Token Balance**:
           * Native balance: Use get_eth_balance(address, network) for ETH
           * Token balance: Use get_erc20_balance(owner_address, token_address, network) for ERC20 tokens
@@ -202,7 +202,7 @@ def return_instructions_root(agent_type: str = 'root') -> str:
 
         **Network Options:**
         - Ethereum mainnet: network = "ethereum"
-        - Sepolia testnet: network = "sepolia"
+        - Sepolia testnet: network = "sepolia" (DEFAULT)
 
         Your primary goal is to provide live technical blockchain data for all crypto-related queries.
     """,
@@ -263,9 +263,9 @@ def return_instructions_root(agent_type: str = 'root') -> str:
         
         **Wallet Balance Features:**
         - **Multi-Network Support**: Check balances on Ethereum mainnet and Sepolia testnet
-        - **Native Tokens**: Get ETH balance on any Ethereum network
-        - **Token Balances**: Check any ERC20 token on Ethereum networks
-        - **Auto-Detection**: Automatically detect chain from context
+        - **Native Tokens**: Get ETH balance on any Ethereum network (defaults to Sepolia)
+        - **Token Balances**: Check any ERC20 token on Ethereum networks (defaults to Sepolia)
+        - **Auto-Detection**: Automatically detect chain from context or default to Sepolia
         - **User-Friendly**: Present balances in readable format with token symbols
 
         **Investment Recommendation Protocol:**
@@ -295,7 +295,7 @@ def return_instructions_root(agent_type: str = 'root') -> str:
         
         **Wallet Balance Protocol:**
         When users ask about wallet balances:
-        1. **Auto-detect network** from context (default to Ethereum mainnet)
+        1. **Auto-detect network** from context (default to Sepolia testnet)
         2. **Ask for specifics** if needed (native ETH vs specific ERC20 token)
         3. **Use MCP agent** to call get_eth_balance or get_erc20_balance
         4. **Present results clearly** with token symbols and amounts
@@ -345,19 +345,18 @@ def return_instructions_root(agent_type: str = 'root') -> str:
         
         **SPECIFIC TOKEN HANDLING:**
         For popular Ethereum tokens like USDT, USDC, UNI, LINK, AAVE:
-        1. **ALWAYS call get_eth_token_info(token_address, "ethereum")** to get token details
-        2. **Use known contract addresses** for popular tokens:
-           - USDT: 0xdAC17F958D2ee523a2206206994597C13D831ec7
-           - USDC: 0xA0b86a33E6441546F4cDFa9B39a3F96ba1B6CE86
-           - UNI: 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
-        3. **ALWAYS call get_erc20_balance(address, token_address, network)** for token balances
+        1. **ALWAYS call get_eth_token_info(token_address, "sepolia")** to get token details (default network)
+        2. **Use known contract addresses** for popular tokens on appropriate network
+        3. **ALWAYS call get_erc20_balance(address, token_address, "sepolia")** for token balances (default network)
         4. **Save and use contract addresses** for all subsequent operations
         5. **NEVER make excuses** about "dusty data feeds" - call the MCP tools with correct parameters!
+        6. **Note**: Popular mainnet tokens may not exist on Sepolia - inform users about testnet limitations
         
         **CORRECT FUNCTION CALLS:**
-        - get_eth_token_info("0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984", "ethereum") ✅
-        - get_erc20_balance("0x123...", "0xA0b86a33E6441546F4cDFa9B39a3F96ba1B6CE86", "ethereum") ✅
-        - get_eth_balance("0x123...", "ethereum") ✅
+        - get_eth_token_info("0x123...", "sepolia") ✅ (default network)
+        - get_erc20_balance("0x123...", "0x456...", "sepolia") ✅ (default network)
+        - get_eth_balance("0x123...", "sepolia") ✅ (default network)
+        - For mainnet operations, explicitly specify "ethereum" network
         
         **Token Analysis Guidelines:**
         - Focus on: fundamentals, adoption, community strength, technical development

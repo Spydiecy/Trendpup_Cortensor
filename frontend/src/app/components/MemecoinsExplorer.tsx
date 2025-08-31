@@ -113,7 +113,7 @@ export default function MemecoinsExplorer({ selectedChain: propSelectedChain }: 
     <div className="bg-white rounded-xl shadow-lg border border-trendpup-brown/20 overflow-hidden">
       <div className="p-4 bg-trendpup-dark text-white">
         <h2 className="text-xl font-bold">Memecoin Explorer</h2>
-        <p className="text-sm opacity-75">Discover trending memecoins with TrendPup intelligence</p>
+        <p className="text-sm opacity-75">Discover trending memecoins with TrendPup intelligence (updates every hour)</p>
       </div>
       <div className="p-4">
         {/* Chain Toggle - Hidden when controlled by parent */}
