@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { IoSendSharp } from 'react-icons/io5';
 import { FaDog, FaUser, FaMicrophone, FaMicrophoneSlash, FaVolumeUp, FaVolumeMute, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 
 // Update DisplayData to be a string type
 type DisplayData = string | null;
@@ -729,7 +730,9 @@ export default function TrendPupChat() {
                                             Agent: {message.agent}
                                         </div>
                                     )}
-                                    <div className="whitespace-pre-wrap">{message.content}</div>
+                                    <div className="whitespace-pre-wrap">
+                                        <ReactMarkdown>{message.content}</ReactMarkdown>
+                                    </div>
 
                                     {/* Show retry button for error messages */}
                                     {message.type === 'ai' && (message.content.includes('error') || message.content.includes('timeout') || message.content.includes('trouble')) && (
