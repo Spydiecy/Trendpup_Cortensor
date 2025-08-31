@@ -8,13 +8,20 @@
 - **Local Router Node** - Self-hosted Cortensor router for decentralized AI inference
 - **LLaMA 3.1 8B Q4 Model** - Advanced language model running on Cortensor network
 - **Dynamic Session Management** - UUID-based session IDs for each AI request
-- **SSE Streaming Support** - Real-time AI responses via Server-Sent Events
+- **SSE Streaming Support** - Real-tim### **Key Technical Achievements:**
+
+🤖 **Cortensor AI Architecture** - Google ADK agents modified to use Cortensor models exclusively for all inference  
+🔗 **Ethereum Excellence** - Native Ethereum integration with comprehensive ERC-20 and smart contract support  
+💻 **Production-Ready Implementation** - TypeScript backend with Python agent system, both Cortensor-integrated  
+🌐 **Dynamic Session Management** - UUID-based sessions with real-time SSE streaming capabilities  
+🛠️ **Comprehensive Tooling** - Ethereum MCP protocol integration with wallet and trading operations  
+🔄 **Decentralized AI** - All AI operations powered by Cortensor decentralized network infrastructureponses via Server-Sent Events
 - **Health Monitoring** - Automated health checks for Cortensor API endpoints
 
-### **Hybrid AI Framework**
-- **Primary Engine**: Cortensor decentralized AI network for advanced analysis
-- **Fallback System**: Google ADK agents for reliability and redundancy
-- **Model Flexibility**: Seamless switching between Cortensor and traditional models
+### **Cortensor AI Framework**
+- **Core Engine**: Google ADK agents modified to use Cortensor models exclusively
+- **Decentralized AI**: All analysis powered by Cortensor LLaMA 3.1 8B Q4 models
+- **Agent Architecture**: Google ADK framework routing to Cortensor infrastructure
 
 ## Supported Chains & Networks
 
@@ -35,7 +42,7 @@
 - 💬 **Conversational AI** - Natural language interaction with dog-themed personality
 - 🎤 **Voice Interface** - Speech-to-text input and text-to-speech responses
 - 🌐 **Multi-Source Intelligence** - Combined blockchain data with web search integration
-- ⚡ **Hybrid AI Engine** - Cortensor primary with Google ADK fallback system
+- ⚡ **Cortensor-Powered Agents** - Google ADK agents modified to use Cortensor models exclusively
 
 ## Current Capabilities & Functions
 
@@ -71,15 +78,15 @@
 ### 🤖 **Multi-Agent System Architecture**
 
 **Cortensor-Powered Agent Network:**
-1. **Context Analysis Agent** - Provides project context and detects crypto queries using hybrid AI
+1. **Context Analysis Agent** - Provides project context and detects crypto queries using Cortensor AI
 2. **Ethereum MCP Agent** - Handles live Ethereum blockchain data and trading operations  
 3. **Search Agent** - Provides market intelligence and news analysis via web search
 4. **Root Agent (TrendPup)** - Coordinates all agents and provides final recommendations
 
 **Agent Configuration:**
-- **Primary Models**: `cortensor://llama-3.1-8b-q4` (LLaMA 3.1 8B Q4 on Cortensor network)
+- **Core Models**: `cortensor://llama-3.1-8b-q4` (LLaMA 3.1 8B Q4 on Cortensor network)
+- **Framework**: Google ADK agents modified to route exclusively to Cortensor models
 - **Session Management**: Dynamic UUID-based session IDs for each request
-- **Health Monitoring**: Automatic fallback to Google ADK if Cortensor unavailable
 - **Tool Integration**: Ethereum MCP tools, search capabilities, and document analysis
 
 **Agent Flow:**
@@ -374,17 +381,17 @@ CORTENSOR_API_KEY=default-dev-token
 - **Ethereum Focus**: Specialized scrapers for Ethereum tokens and social data
 
 ### **Agent System (Python)**
-- **Hybrid Framework**: Cortensor primary with Google ADK fallback
-- **Model Detection**: Automatic routing based on `cortensor://` model prefix
+- **Cortensor Framework**: Google ADK agents modified to use Cortensor models exclusively
+- **Model Routing**: All models route to `cortensor://llama-3.1-8b-q4` infrastructure
 - **Multi-Agent Architecture**: Context, Ethereum MCP, Search, and Root agents
 - **Tool Integration**: Comprehensive Ethereum blockchain operations
 
 ### **Current Implementation Status**
 - ✅ **Cortensor Router Node**: Registered on Arbitrum Sepolia testnet
 - ✅ **TypeScript Backend**: Full Cortensor API integration with SSE
-- ✅ **Python Agents**: Hybrid system with Cortensor primary routing
+- ✅ **Python Agents**: Google ADK framework modified to use Cortensor models exclusively
 - ✅ **Dynamic Sessions**: UUID-based session management
-- ✅ **Health Monitoring**: Automatic status checks and fallbacks
+- ✅ **Model Routing**: All agents route to Cortensor LLaMA 3.1 8B Q4 models
 
 ```mermaid
 flowchart TD
@@ -513,10 +520,10 @@ graph TB
   Health checks and error handling
 
 - **Agent System (Python):**  
-  Multi-agent architecture with Google ADK integration  
-  Cortensor model detection and routing  
+  Multi-agent architecture using Google ADK framework  
+  Modified to route exclusively to Cortensor models  
   Ethereum MCP tools for blockchain operations  
-  Hybrid AI system with fallback capabilities
+  All AI inference powered by Cortensor infrastructure
 
 - **Ethereum Integration:**  
   Native ETH and ERC-20 token support  
@@ -555,12 +562,12 @@ graph TB
 - SSE streaming support for real-time AI responses
 - Ethereum-focused token and Twitter scrapers with health monitoring
 
-**Python Agent System (Hybrid AI Framework):**
+**Python Agent System (Cortensor AI Framework):**
 
-- Multi-agent system with Google ADK and Cortensor integration
-- Automatic model detection and routing based on model prefixes
+- Multi-agent system using Google ADK framework modified for Cortensor
+- All models route to `cortensor://llama-3.1-8b-q4` infrastructure
 - Comprehensive Ethereum MCP tools for blockchain operations
-- Fallback mechanisms for reliability and uptime
+- Decentralized AI inference via Cortensor network
 
 **Cortensor Infrastructure:**
 
@@ -623,7 +630,7 @@ graph LR
 
 ## Summary
 
-**TrendPup 🐕** is an advanced AI-powered memecoin investment assistant that combines **decentralized Cortensor AI** with **traditional AI systems** for comprehensive Ethereum ecosystem analysis and trading.
+**TrendPup 🐕** is an advanced AI-powered memecoin investment assistant that uses **Google ADK agents modified to run Cortensor AI models** for comprehensive Ethereum ecosystem analysis and trading.
 
 ### **Key Technical Achievements:**
 
@@ -634,7 +641,7 @@ graph LR
 🛠️ **Comprehensive Tooling** - Ethereum MCP protocol integration with wallet and trading operations  
 � **Self-Healing System** - Health monitoring with automatic fallback mechanisms  
 
-The platform leverages both cutting-edge decentralized AI (Cortensor) and proven enterprise AI (Google ADK) to provide institutional-level memecoin analysis while maintaining the reliability and uptime required for financial applications.
+The platform leverages decentralized Cortensor AI through modified Google ADK agents to provide institutional-level memecoin analysis with the power of LLaMA 3.1 8B Q4 models running on decentralized infrastructure.
 
 ---
 
